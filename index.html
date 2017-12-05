@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Grocery list</title>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/scripts.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>grocery list item</h1>
+      <form id="formOne">
+        <div class="form-group">
+          <label for="item1">item1</label>
+          <input id="item1" class="form-control" value="one" type="text">
+        </div>
+        <div class="form-group">
+          <label for="item2">item2</label>
+          <input id="item2" class="form-control" type="text">
+        </div>
+        <div class="form-group">
+          <label for="item3">item3</label>
+          <input id="item3" class="form-control" type="text">
+        </div>
+        <div class="form-group">
+          <label for="item4">item4</label>
+          <input id="item4" class="form-control" type="text">
+        </div>
+        <div class="form-group">
+          <label for="item5">item5</label>
+          <input id="item5" class="form-control" type="text">
+        </div>
+      <button type="submit" class="btn btn-success">Show me the list</button>
+    </form>
+    </div>
+    <div id="#story">
+      <p>Here's your recommendations!</p>
+      <p id="grocery">
+      </p>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+
+$(document).ready(function() {
+  $("#formOne").submit(function(event) {
+    var groceries = ["item1", "item2", "item3", "item4", "item5"];
+    var items = [];
+debugger;
+    groceries.forEach(function(grocery) {
+      var userInput = $("input#" + grocery).val();
+      console.log(userInput); //this works, it shows user inputs in the console.
+      $("." + userInput).text(); //this needs to be different. We need to append or show our user input differently.
+      $("#grocery").append("");
+
+    });
+
+    $("#story").show();
+    $("#grocery").show();
+    event.preventDefault();
+  });
+});
